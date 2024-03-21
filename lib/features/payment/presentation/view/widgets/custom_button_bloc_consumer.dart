@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/functions/custom_snack_bar.dart';
 import 'package:bookly/core/functions/navigation.dart';
@@ -66,7 +65,6 @@ class CustomButtonBlocConsumer extends StatelessWidget {
           Navigator.pop(context);
         },
         onCancel: () {
-          print('cancelled:');
           Navigator.pop(context);
         },
       ),
