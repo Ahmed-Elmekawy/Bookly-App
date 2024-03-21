@@ -1,14 +1,12 @@
-
 class HomeModel {
   String? kind;
   int? totalItems;
-  List<Items>? items;
+  List<Items>? items = [];
 
   HomeModel.fromJson(Map<String, dynamic> json) {
     kind = json['kind'];
     totalItems = json['totalItems'];
     if (json['items'] != null) {
-      items = <Items>[];
       json['items'].forEach((v) {
         items!.add(Items.fromJson(v));
       });
@@ -105,13 +103,26 @@ class SaleInfo {
   String? country;
   String? saleability;
   bool? isEbook;
+  ListPrice? listPrice;
   String? buyLink;
 
   SaleInfo.fromJson(Map<String, dynamic> json) {
     country = json['country'];
     saleability = json['saleability'];
     isEbook = json['isEbook'];
-    buyLink = json['buyLink'];
+    listPrice = json['listPrice'] != null
+        ? ListPrice.fromJson(json['listPrice'])
+        : null;
+  }
+}
+
+class ListPrice {
+  double? amount;
+  String? currencyCode;
+
+  ListPrice.fromJson(Map<String, dynamic> json) {
+    amount = json['amount']??"Not For Sale";
+    currencyCode = json['currencyCode'];
   }
 }
 

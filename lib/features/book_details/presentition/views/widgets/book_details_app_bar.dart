@@ -1,11 +1,11 @@
-import 'package:bookly/core/functions/laucnh_url.dart';
+import 'package:bookly/core/functions/navigation.dart';
+import 'package:bookly/features/home/data/models/home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookDetailsAppBar extends StatelessWidget {
-  const BookDetailsAppBar({super.key, required this.buyLink});
-  final dynamic buyLink;
-
+  const BookDetailsAppBar({super.key, required this.item});
+  final Items item;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,16 +22,21 @@ class BookDetailsAppBar extends StatelessWidget {
                 size: 32,
               )),
           const Spacer(),
-          if (buyLink != null)
-            IconButton(
-                onPressed: () async {
-                  await launchCustomUr(context, buyLink);
-                },
-                icon: const Icon(
-                  Icons.shopping_cart_outlined,
-                  color: Colors.yellow,
-                  size: 25,
-                ))
+          IconButton(
+              onPressed: () {
+                navigateToMyCartView(context,
+                    price: item.saleInfo!.listPrice!.amount!,
+                    discount: 0,
+                    shipping: 50,
+                    title: item.volumeInfo!.title!,
+                    image: item.volumeInfo!.imageLinks!.thumbnail!,
+                    currencyCode: item.saleInfo!.listPrice!.currencyCode!);
+              },
+              icon: const Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.yellow,
+                size: 25,
+              ))
         ],
       ),
     );

@@ -9,6 +9,5 @@ class SearchListViewItem extends BestListViewItem {
       required super.averageRating,
       required super.ratingsCount,
       required super.item,
-      required super.category,
-      required super.buyLink});
+      required super.category});
 }

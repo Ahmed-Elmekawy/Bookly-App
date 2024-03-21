@@ -54,7 +54,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             height: 10,
           ),
           Text(
-            "browse free books",
+            "browse paid books",
             style: TextStyle(
                 color: const Color(0xffA7A2A9).withOpacity(0.25),
                 fontSize: 18,

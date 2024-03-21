@@ -1,5 +1,4 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/functions/custom_snack_bar.dart';
 import 'package:bookly/core/functions/laucnh_url.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/core/widgets/custom_burtton.dart';
@@ -18,7 +17,7 @@ class BookDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BookDetailsAppBar(buyLink: item.saleInfo!.buyLink),
+          BookDetailsAppBar(item: item),
           const SizedBox(
             height: 30,
           ),
@@ -29,24 +28,16 @@ class BookDetailsViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              customButton(
-                  onPressed: () async {
-                    if (item.saleInfo!.buyLink != null) {
-                      await launchCustomUr(context, item.saleInfo!.buyLink);
-                    } else if (item.saleInfo!.buyLink == null &&
-                        item.accessInfo!.pdf!.isAvailable == true) {
-                      await launchCustomUr(
-                          context, item.accessInfo!.pdf!.acsTokenLink);
-                    } else {
-                      customSnackBar(context, "Not Available");
-                    }
-                  },
-                  text: item.saleInfo!.buyLink != null
-                      ? "Not Free"
-                      : "Free Download",
+              CustomButton(
+                width: 150,
+                  onPressed: () async {},
+                  text: item.saleInfo!.saleability == "NOT_FOR_SALE"
+                      ? "NOT FOR SALE"
+                      : "${item.saleInfo!.listPrice!.amount},${item.saleInfo!.listPrice!.currencyCode}",
                   topLeft: const Radius.circular(20),
-                  bottomLeft: const Radius.circular(20)),
-              customButton(
+                  bottomLeft: const Radius.circular(20), color: kWhiteColor,),
+              CustomButton(
+                width: 150,
                   onPressed: () async {
                     await launchCustomUr(context, item.volumeInfo!.previewLink);
                   },
@@ -72,5 +63,3 @@ class BookDetailsViewBody extends StatelessWidget {
     );
   }
 }
-
-

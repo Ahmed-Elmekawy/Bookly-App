@@ -1,4 +1,6 @@
 import 'package:bookly/features/home/presentition/views/home_view.dart';
+import 'package:bookly/features/payment/presentation/view/thank_you_view.dart';
+import 'package:bookly/features/payment/presentation/view/widgets/payment_method_buttom_sheet.dart';
 import 'package:bookly/features/search/presentition/views/search_view.dart';
 import 'package:bookly/features/splash/presentition/views/splash_view.dart';
 import 'package:go_router/go_router.dart';

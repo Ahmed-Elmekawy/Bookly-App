@@ -16,7 +16,7 @@ class SimilarBooksCubit extends Cubit<SimilarBooksStates> {
     emit(SimilarBooksLoading());
     try {
       var data = await ApiService.getData(
-          endPoint: 'volumes?Filtering=free-ebooks&q=:$category');
+          endPoint: 'volumes?Filtering=paid-ebooks&q=:$category');
       similarBooksModel = SimilarBooksModel.fromJson(data);
       emit(SimilarBooksSuccess());
     } catch (e) {

@@ -1,4 +1,4 @@
-class AssetsData {
+abstract class AssetsData {
   static const logo = "assets/images/logo.png";
   static const montserratSemiBold = "Montserrat-SemiBold";
   static const montserratMedium = "Montserrat-Medium";

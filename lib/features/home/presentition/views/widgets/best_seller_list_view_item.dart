@@ -13,7 +13,6 @@ class BestListViewItem extends StatelessWidget {
     required this.ratingsCount,
     required this.item,
     required this.category,
-    required this.buyLink,
   });
   final String imageUrl;
   final String title;
@@ -22,7 +21,6 @@ class BestListViewItem extends StatelessWidget {
   final int ratingsCount;
   final Items item;
   final String category;
-  final dynamic buyLink;
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +63,6 @@ class BestListViewItem extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text(
-                    buyLink != null ? "Not Free" : "Free",
-                    style: Styles.montserratBold15,
-                  ),
                   const Spacer(),
                   const Icon(
                     Icons.star_rate_rounded,

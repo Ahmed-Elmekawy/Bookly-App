@@ -17,7 +17,7 @@ class HomeCubit extends Cubit<HomeStates> {
     emit(NewestBooksLoading());
     try {
       var data = await ApiService.getData(
-          endPoint: 'volumes?Filtering=free-books&Sorting=newest&q=flutter');
+          endPoint: 'volumes?Filtering=paid-books&Sorting=newest&q=flutter');
       newestHomeModel = HomeModel.fromJson(data);
       emit(NewestBooksSuccess());
     } catch (e) {
@@ -30,7 +30,7 @@ class HomeCubit extends Cubit<HomeStates> {
     try {
       var data = await ApiService.getData(
           endPoint:
-              'volumes?Filtering=free-ebooks&q=programming&Sorting=newest&maxResults=40');
+              'volumes?Filtering=paid-ebooks&q=programming&Sorting=newest&maxResults=40');
       bestHomeModel = HomeModel.fromJson(data);
       emit(BestSellerSuccess());
     } catch (e) {

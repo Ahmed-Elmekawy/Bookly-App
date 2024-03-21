@@ -9,8 +9,7 @@ ClipRRect bookImage(
     required double height,
     required double width,
     Items? item,
-    String? category,
-    int? itemIndex}) {
+    String? category}) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(16),
     child: SizedBox(
@@ -18,8 +17,10 @@ ClipRRect bookImage(
       width: width,
       child: GestureDetector(
         onTap: () {
-          navigateToBookDetailsView(context,
-              item: item!, category: category!);
+          if(item!=null&&category!=null) {
+            navigateToBookDetailsView(context,
+                item: item, category: category);
+          }
         },
         child: CachedNetworkImage(
           fit: BoxFit.fill,

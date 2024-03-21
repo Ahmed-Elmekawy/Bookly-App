@@ -16,7 +16,7 @@ class SearchCubit extends Cubit<SearchStates> {
     emit(SearchBooksLoading());
     try {
       var data = await ApiService.getData(
-          endPoint: 'volumes?Filtering=free-ebooks&q=:$input');
+          endPoint: 'volumes?Filtering=paid-ebooks&q=:$input');
       searchModel = SearchModel.fromJson(data);
       emit(SearchBooksSuccess());
     } catch (e) {

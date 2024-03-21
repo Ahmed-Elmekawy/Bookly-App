@@ -26,7 +26,6 @@ class SearchListView extends StatelessWidget {
                   ratingsCount: items[index].volumeInfo!.ratingsCount!,
                   item: items[index],
                   category: items[index].volumeInfo!.categories![0],
-                  buyLink: items[index].saleInfo!.buyLink,
                 ),
             separatorBuilder: (context, index) => const SizedBox(
                   height: 20,
